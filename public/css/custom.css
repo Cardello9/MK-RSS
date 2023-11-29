@@ -1,0 +1,36 @@
+body {
+    background-color: #ECF4D6;
+}
+
+.btn.btn-primary {
+    background-color: #265073;
+}
+
+.btn.btn-primary:hover {
+    background-color: #2D9596;
+}
+
+.card .card-img-top {
+    height: 15rem;
+    object-fit: cover;
+}
+
+.brightest-bg {
+    background-color: #ECF4D6;
+}
+
+.bright-bg {
+    background-color: #9AD0C2;
+}
+
+.dark-bg {
+    background-color: #2D9596;
+}
+
+.darkest-bg {
+    background-color: #265073;
+}
+
+.custom-shadow {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
