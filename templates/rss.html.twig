@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>RSS Feed</h1>
+    {% for news in allNews %}
+        {% set feedItem = news.feedItem %}
+        <h2>{{ feedItem.title }}</h2>
+        <p>{{ feedItem.description }}</p>
+        <p>{{ feedItem.link }}</p>
+        <p>{{ feedItem.pubDate }}</p>
+        {% if  news.imageUrl is not null %}
+            <img src="{{ news.imageUrl }}" alt="{{ feedItem.title }}">
+        {% endif %}
+    {% endfor %}
+{% endblock %}
