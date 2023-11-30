@@ -11,15 +11,37 @@ class RssController extends AbstractController
     /**
      * Display RSS feed.
      */
-    #[Route('/')]
-    public function displayRss(): Response
+    #[Route('/{category}', name: 'category_show')]
+    public function displayRss(string $category = "technology"): Response
     {
         // URL addresses of RSS feeds.
-        $urls = [
-            'https://www.cnet.com/rss/news/',
-            'https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml',
-            'https://moxie.foxnews.com/google-publisher/tech.xml'
-        ];
+        switch ($category) {
+            case "business":
+                $urls = [
+                    'https://rss.nytimes.com/services/xml/rss/nyt/Business.xml',
+                    'https://fortune.com/feed/fortune-feeds/?id=3230629',
+                ];
+                break;
+            case "usa":
+                $urls = [
+                    'https://rss.nytimes.com/services/xml/rss/nyt/US.xml',
+                    'https://moxie.foxnews.com/google-publisher/us.xml',
+                ];
+                break;
+            case "europe":
+                $urls = [
+                    'https://rss.nytimes.com/services/xml/rss/nyt/Europe.xml',
+                    'https://euronews.com/rss?format=mrss&level=vertical&name=my-europe'
+
+                ];
+                break;
+            default:
+                $urls = [
+                    'https://www.cnet.com/rss/news/',
+                    'https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml',
+                    'https://moxie.foxnews.com/google-publisher/tech.xml',
+                ];
+        }
 
         // Get all news from feeds.
         $allNews = [];
@@ -52,6 +74,7 @@ class RssController extends AbstractController
         
         return $this->render('rss.html.twig', [
             'allNews' => $allNews,
+            'category' => $category,
         ]);
     }
 }

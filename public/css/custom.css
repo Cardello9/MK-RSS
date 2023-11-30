@@ -2,6 +2,18 @@ body {
     background-color: #ECF4D6;
 }
 
+nav a {
+    color: white;
+}
+
+nav a:hover {
+    color: #2D9596;
+}
+
+nav .active a {
+    color: #2D9596;
+}
+
 .btn.btn-primary {
     background-color: #265073;
 }

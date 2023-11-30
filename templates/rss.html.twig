@@ -2,8 +2,27 @@
 
 {% block body %}
     <header>
-        <nav class="navbar navbar-light darkest-bg custom-shadow">
-            <span class="navbar-brand text-white p-3"><h1>MK RSS Feed</h1></span>
+        <nav class="navbar navbar-expand-lg darkest-bg custom-shadow">
+            <a class="navbar-brand" href="{{ path('category_show') }}"><h1>MK RSS Feed</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item {% if category == 'technology' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('category_show', { category: "technology" }) }}">Technology</a>
+                    </li>
+                    <li class="nav-item {% if category == 'business' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('category_show', { category: "business" }) }}">Business</a>
+                    </li>
+                    <li class="nav-item {% if category == 'europe' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('category_show', { category: "europe" }) }}">Europe</a>
+                    </li>
+                    <li class="nav-item {% if category == 'usa' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('category_show', { category: "usa" }) }}">USA</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
     <div class="container pt-5">
