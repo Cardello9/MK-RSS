@@ -26,6 +26,7 @@
         </nav>
     </header>
     <div class="container pt-5">
+        {% include 'components/pagination.html.twig' %}
         <div class="row">
             {% for news in allNews %}
                 <div class="col-md-12 col-lg-4">
@@ -41,7 +42,11 @@
                     </div>
                 </div>
             {% endfor %}
+            {% if allNews is null %}
+                <h2 class="text-center w-100 mb-5 h1">404</h2>
+            {% endif %}
         </div>
+        {% include 'components/pagination.html.twig' %}
     </div>
     <footer class="darkest-bg text-center text-white p-3 custom-shadow">
         <p>Created by Maciej Kardel 2023</p>

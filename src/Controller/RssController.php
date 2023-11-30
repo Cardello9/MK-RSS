@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,8 +13,11 @@ class RssController extends AbstractController
      * Display RSS feed.
      */
     #[Route('/{category}', name: 'category_show')]
-    public function displayRss(string $category = "technology"): Response
+    public function displayRss(Request $request, string $category = "technology"): Response
     {
+        $perPage = 12;
+        $pageNum = $request->query->getInt('p', 1);
+
         // URL addresses of RSS feeds.
         switch ($category) {
             case "business":
@@ -71,10 +75,24 @@ class RssController extends AbstractController
                 return -1;
             }
         });
+
+        $newsCount = count($allNews);
+        $pagesCount = ceil($newsCount / $perPage);
+
+        // Split news in pages.
+        $allNews = array_chunk($allNews, $perPage);
+
+        if (array_key_exists($pageNum-1, $allNews)) {
+            $allNews = $allNews[$pageNum-1];
+        } else {
+            $allNews = null;
+        }
         
         return $this->render('rss.html.twig', [
             'allNews' => $allNews,
             'category' => $category,
+            'pagesCount' => $pagesCount,
+            'pageNum' => $pageNum,
         ]);
     }
 }

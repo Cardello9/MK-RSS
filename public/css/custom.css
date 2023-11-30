@@ -14,6 +14,14 @@ nav .active a {
     color: #2D9596;
 }
 
+.page-item.active .page-link {
+    background-color: #265073;
+}
+
+.page-link {
+    color: #265073;
+}
+
 .btn.btn-primary {
     background-color: #265073;
 }
