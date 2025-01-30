@@ -29,7 +29,7 @@
         {% include 'components/pagination.html.twig' %}
         <div class="row">
             {% for news in allNews %}
-                <div class="col-md-12 col-lg-4">
+                <div class="col-md-12 col-lg-4 mb-1">
                     {% set feedItem = news.feedItem %}
                     <div class="card mb-2 custom-shadow">
                         <img class="card-img-top" src="{{ news.imageUrl }}" alt="{{ feedItem.title }}">
