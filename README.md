@@ -4,7 +4,7 @@ Displays RSS Feed from external sources.
 Runs on Symfony 6.3.8.
 
 Requirements:
-1. PHP 8.1 0r higher
+1. PHP 8.1 or higher
 2. Apache
 (Runs well on XAMPP, does not require database)
 
