@@ -3,23 +3,23 @@
 {% block body %}
     <header>
         <nav class="navbar navbar-expand-lg darkest-bg custom-shadow navbar-dark">
-            <a class="navbar-brand" href="{{ path('category_show') }}"><h1>MK RSS Feed</h1></a>
+            <a class="navbar-brand" href="{{ path('category_show') }}" title="Home"><h1>MK RSS Feed</h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item {% if category == 'technology' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('category_show', { category: "technology" }) }}">Technology</a>
+                        <a class="nav-link" href="{{ path('category_show', { category: "technology" }) }}" title="Technology">Technology</a>
                     </li>
                     <li class="nav-item {% if category == 'business' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('category_show', { category: "business" }) }}">Business</a>
+                        <a class="nav-link" href="{{ path('category_show', { category: "business" }) }}" title="Business">Business</a>
                     </li>
                     <li class="nav-item {% if category == 'europe' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('category_show', { category: "europe" }) }}">Europe</a>
+                        <a class="nav-link" href="{{ path('category_show', { category: "europe" }) }}" title="Europe">Europe</a>
                     </li>
                     <li class="nav-item {% if category == 'usa' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('category_show', { category: "usa" }) }}">USA</a>
+                        <a class="nav-link" href="{{ path('category_show', { category: "usa" }) }}" title="USA">USA</a>
                     </li>
                 </ul>
             </div>
@@ -33,13 +33,13 @@
                     {% set feedItem = news.feedItem %}
                     <div class="card mb-2 custom-shadow">
                         <div class="card-img-container">
-                            <img class="card-img-top" src="{{ news.imageUrl }}" alt="{{ feedItem.title }}">
+                            <img class="card-img-top" src="{{ news.imageUrl }}" alt="{{ feedItem.title }}" title="{{ feedItem.title }}">
                         </div>
                         <div class="card-body">
                             <p class="text-secondary">{{ feedItem.pubDate }}</p>
-                            <a class="card-title h5 mb-1" href="{{ feedItem.link }}" target="_blank">{{ feedItem.title }}</a>
+                            <a class="card-title h5 mb-1" href="{{ feedItem.link }}" target="_blank" title="{{ feedItem.title }}">{{ feedItem.title }}</a>
                             <p class="card-text">{{ feedItem.description }}</p>
-                            <a href="{{ feedItem.link }}" class="btn btn-primary" target="_blank">Show</a>
+                            <a href="{{ feedItem.link }}" class="btn btn-primary" target="_blank" title="{{ feedItem.title }}">Show</a>
                         </div>
                     </div>
                 </div>
