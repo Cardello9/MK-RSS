@@ -16,6 +16,35 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header>
+            <nav class="navbar navbar-expand-lg darkest-bg custom-shadow navbar-dark">
+                <a class="navbar-brand" href="{{ path('category_show') }}" title="Home"><h1>MK RSS Feed</h1></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item {% if category == 'technology' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('category_show', { category: "technology" }) }}" title="Technology">Technology</a>
+                        </li>
+                        <li class="nav-item {% if category == 'business' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('category_show', { category: "business" }) }}" title="Business">Business</a>
+                        </li>
+                        <li class="nav-item {% if category == 'europe' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('category_show', { category: "europe" }) }}" title="Europe">Europe</a>
+                        </li>
+                        <li class="nav-item {% if category == 'usa' %}active{% endif %}">
+                            <a class="nav-link" href="{{ path('category_show', { category: "usa" }) }}" title="USA">USA</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="container pt-5">
+            {% block body %}{% endblock %}
+        </div>
+        <footer class="darkest-bg text-center text-white p-3 custom-shadow">
+            <p>Created by Maciej Kardel 2023</p>
+        </footer>
     </body>
 </html>
