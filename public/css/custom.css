@@ -54,3 +54,15 @@ nav .active a {
 .custom-shadow {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.card-img-container {
+    overflow: hidden;
+}
+  
+.card-img-container img {
+    transition: transform .5s ease;
+}
+  
+.card:hover img {
+    transform: scale(1.1);
+}

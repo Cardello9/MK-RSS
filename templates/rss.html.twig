@@ -32,7 +32,9 @@
                 <div class="col-md-12 col-lg-4 mb-1">
                     {% set feedItem = news.feedItem %}
                     <div class="card mb-2 custom-shadow">
-                        <img class="card-img-top" src="{{ news.imageUrl }}" alt="{{ feedItem.title }}">
+                        <div class="card-img-container">
+                            <img class="card-img-top" src="{{ news.imageUrl }}" alt="{{ feedItem.title }}">
+                        </div>
                         <div class="card-body">
                             <p class="text-secondary">{{ feedItem.pubDate }}</p>
                             <a class="card-title h5 mb-1" href="{{ feedItem.link }}" target="_blank">{{ feedItem.title }}</a>
