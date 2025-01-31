@@ -1,0 +1,29 @@
+technology:
+  title: Technology
+  shortDescription: Stay up-to-date with the latest breakthroughs, trends, and news in the world of technology.
+  fullDescription: Dive into the ever-evolving world of technology with our comprehensive coverage. From artificial intelligence and virtual reality to cutting-edge gadgets and groundbreaking innovations, we bring you the most relevant and engaging stories. Explore the impact of technology on society, business, and our daily lives, with in-depth articles, expert analysis, and insightful commentary.
+  urls:
+    - 'https://www.cnet.com/rss/news/'
+    - 'https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml'
+    - 'https://moxie.foxnews.com/google-publisher/tech.xml'
+business:
+  title: Business
+  shortDescription: Your source for the latest business news, market trends, and financial insights.
+  fullDescription: Stay informed about the dynamic world of business with our in-depth coverage. We bring you breaking news, market analysis, and expert opinions on everything from global finance and economic trends to company profiles and industry developments.  Explore the forces shaping the business landscape and understand their impact on your work, investments, and the global economy.  
+  urls:
+    - 'https://rss.nytimes.com/services/xml/rss/nyt/Business.xml'
+    - 'https://fortune.com/feed/fortune-feeds/?id=3230629'
+usa:
+  title: USA
+  shortDescription: The latest news and updates from across the United States.
+  fullDescription: Stay informed about the key events, political developments, and social trends shaping the United States. We provide comprehensive coverage of national news, including politics, economy, society, and culture, with in-depth analysis and diverse perspectives.
+  urls:
+    - 'https://rss.nytimes.com/services/xml/rss/nyt/US.xml'
+    - 'https://moxie.foxnews.com/google-publisher/us.xml'
+europe:
+  title: Europe
+  shortDescription: News and insights from across the European continent.
+  fullDescription: Stay informed about the latest developments in European politics, economics, culture, and society. We provide comprehensive coverage of EU affairs, national news from individual European countries, and the key issues shaping the continent, with insightful analysis and diverse perspectives.
+  urls:
+    - 'https://rss.nytimes.com/services/xml/rss/nyt/Europe.xml'
+    - 'https://euronews.com/rss?format=mrss&level=vertical&name=my-europe'
