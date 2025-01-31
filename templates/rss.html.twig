@@ -35,7 +35,7 @@
                         <img class="card-img-top" src="{{ news.imageUrl }}" alt="{{ feedItem.title }}">
                         <div class="card-body">
                             <p class="text-secondary">{{ feedItem.pubDate }}</p>
-                            <h2 class="card-title h5">{{ feedItem.title }}</h2>
+                            <a class="card-title h5 mb-1" href="{{ feedItem.link }}" target="_blank">{{ feedItem.title }}</a>
                             <p class="card-text">{{ feedItem.description }}</p>
                             <a href="{{ feedItem.link }}" class="btn btn-primary" target="_blank">Show</a>
                         </div>
