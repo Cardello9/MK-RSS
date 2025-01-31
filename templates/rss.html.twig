@@ -9,7 +9,7 @@
                 {% set feedItem = news.feedItem %}
                 <div class="card mb-2 custom-shadow">
                     <div class="card-img-container">
-                        <img class="card-img-top" src="{{ news.imageUrl }}" alt="{{ feedItem.title }}" title="{{ feedItem.title }}">
+                        <img class="card-img-top" src="{% if news.imageUrl %} {{ news.imageUrl }} {% else %} {{ asset('images/placeholder.svg') }} {% endif %}" alt="{{ feedItem.title }}" title="{{ feedItem.title }}">
                     </div>
                     <div class="card-body">
                         <p class="text-secondary">{{ feedItem.pubDate }}</p>
