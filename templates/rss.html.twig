@@ -12,7 +12,7 @@
                         <img class="card-img-top" src="{% if news.imageUrl %} {{ news.imageUrl }} {% else %} {{ asset('images/placeholder.svg') }} {% endif %}" alt="{{ feedItem.title }}" title="{{ feedItem.title }}">
                     </div>
                     <div class="card-body">
-                        <p class="text-secondary">{{ feedItem.pubDate }}</p>
+                        <p class="text-secondary">{% if feedItem.pubDate is defined %}{{ feedItem.pubDate }}{% endif %}</p>
                         <a class="card-title h5 mb-1" href="{{ feedItem.link }}" target="_blank" title="{{ feedItem.title }}">{{ feedItem.title }}</a>
                         <p class="card-text">{{ feedItem.description }}</p>
                         <a href="{{ feedItem.link }}" class="btn btn-primary" target="_blank" title="{{ feedItem.title }}">Show</a>

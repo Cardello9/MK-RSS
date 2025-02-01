@@ -13,17 +13,18 @@ business:
   urls:
     - 'https://rss.nytimes.com/services/xml/rss/nyt/Business.xml'
     - 'https://fortune.com/feed/fortune-feeds/?id=3230629'
-usa:
-  title: USA
-  shortDescription: The latest news and updates from across the United States.
-  fullDescription: Stay informed about the key events, political developments, and social trends shaping the United States. We provide comprehensive coverage of national news, including politics, economy, society, and culture, with in-depth analysis and diverse perspectives.
+politics:
+  title: Politics
+  shortDescription: Your source for the latest news and analysis on government, elections, policy, and the forces shaping our world.
+  fullDescription: The Politics section provides comprehensive coverage of the ever-evolving political landscape. Stay informed with breaking news, in-depth analysis, and expert commentary on key issues, elections, and the individuals shaping policy at local, national, and international levels.
   urls:
-    - 'https://rss.nytimes.com/services/xml/rss/nyt/US.xml'
-    - 'https://moxie.foxnews.com/google-publisher/us.xml'
-europe:
-  title: Europe
-  shortDescription: News and insights from across the European continent.
-  fullDescription: Stay informed about the latest developments in European politics, economics, culture, and society. We provide comprehensive coverage of EU affairs, national news from individual European countries, and the key issues shaping the continent, with insightful analysis and diverse perspectives.
+    - 'https://rss.politico.com/politics-news.xml'
+    - 'https://feeds.content.dowjones.io/public/rss/socialpoliticsfeed'
+    - 'https://moxie.foxnews.com/google-publisher/politics.xml'
+sports:
+  title: Sports
+  shortDescription:  Your one-stop source for live scores, breaking news, in-depth analysis, and highlights from the world of sports.
+  fullDescription: The Sports section delivers comprehensive coverage of the diverse and exciting world of athletics, from amateur competitions to professional leagues and international tournaments.  Stay up-to-date with the latest scores, news, and analysis across a variety of sports.
   urls:
-    - 'https://rss.nytimes.com/services/xml/rss/nyt/Europe.xml'
-    - 'https://euronews.com/rss?format=mrss&level=vertical&name=my-europe'
+    - 'https://moxie.foxnews.com/google-publisher/sports.xml'
+    - 'https://rss.nytimes.com/services/xml/rss/nyt/Sports.xml'

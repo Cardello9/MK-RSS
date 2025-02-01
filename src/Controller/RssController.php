@@ -39,7 +39,6 @@ class RssController extends AbstractController
                 if ($attributes) {
                     $news['imageUrl'] = $attributes->url;
                 } else {
-                    // TO DO: Add placeholder image.
                     $news['imageUrl'] = null;
                 }
 
