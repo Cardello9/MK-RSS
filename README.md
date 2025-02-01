@@ -13,5 +13,5 @@ Instructions:
 2. Run "composer install"
 3. Open browser and go to URL --INSTALLATION-DIRECTORY--/public/index.php (for example "http://localhost/rss/public/index.php")
 
-![Alt text](/public/images/screenshot1.png?raw=true "Screenshot 1 - dekstop")
-![Alt text](/public/images/screenshot2.png?raw=true "Screenshot 2 - mobile")
+![Alt text](/public/screenshots/homepage_desktop.png?raw=true "Homepage - desktop")
+![Alt text](/public/screenshots/homepage_mobile.png?raw=true "Homepage - mobile")
