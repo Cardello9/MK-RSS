@@ -18,6 +18,7 @@ class RssController extends AbstractController
     public function displayRss(Request $request, string $categoryName = "technology"): Response
     {
         $perPage = 12;
+        $limit = $perPage * 3;
         $pageNum = $request->query->getInt('p', 1);
 
         $categories = CategoryService::getCategories();
@@ -31,9 +32,15 @@ class RssController extends AbstractController
 
         // Get all news from feeds.
         $allNews = [];
+        $allNewsCount = 0;
         foreach($selectedCategoryData['urls'] as $url) {
             $rssFeed = simplexml_load_file($url);
             foreach ($rssFeed->channel->item as $feedItem) {
+                
+                if ($allNewsCount >= $limit) {
+                    break;
+                }
+
                 $attributes =  $feedItem->children('media', true)->content->attributes();
 
                 if ($attributes) {
@@ -43,7 +50,9 @@ class RssController extends AbstractController
                 }
 
                 $news['feedItem'] = $feedItem;
+                
                 $allNews[] = $news;
+                $allNewsCount += 1;
             }
         }
 
