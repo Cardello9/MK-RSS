@@ -34,6 +34,7 @@ class RssController extends BaseController
             'categories' => $this->categories,
             'selectedCategoryName' => null,
             'highlitedCategory' => $highlitedCategoryData,
+            'highlitedCategoryName' => array_key_first($this->categories),
             'highlitedNews' => $highlitedNews,
             'standardCategories' => $standardCategories,
             'standardCategoriesNews' => $standardCategoriesNews,

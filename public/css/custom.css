@@ -30,6 +30,10 @@ nav .active a {
     background-color: #2D9596;
 }
 
+h2 a {
+    color: #212529;
+}
+
 .card .card-img-top {
     height: 15rem;
     object-fit: cover;
