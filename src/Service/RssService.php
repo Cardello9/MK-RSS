@@ -29,6 +29,7 @@ class RssService
                 }
 
                 $news['feedItem'] = $feedItem;
+                $news['copyright'] = $rssFeed->channel->copyright;
                 
                 $allNews[] = $news;
                 $allNewsCount += 1;
