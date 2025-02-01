@@ -1,6 +1,6 @@
 <div class="col-md-12 col-lg-4 mb-1">
     {% set feedItem = news.feedItem %}
-    <div class="card mb-2 custom-shadow">
+    <div class="card mb-2 custom-shadow h-100">
         <div class="card-img-container">
             <img class="card-img-top" src="{% if news.imageUrl %} {{ news.imageUrl }} {% else %} {{ asset('images/placeholder.svg') }} {% endif %}" alt="{{ feedItem.title }}" title="{{ feedItem.title }}">
         </div>
