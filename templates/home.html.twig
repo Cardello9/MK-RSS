@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>MK RSS Feed</h1>
+    <h2>{{ highlitedCategory.title }}</h2>
+    <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for news in highlitedNews %}
+                {% set feedItem = news.feedItem %}
+                <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+                    <img class="d-block w-100" src="{% if news.imageUrl %} {{ news.imageUrl }} {% else %} {{ asset('images/placeholder_large.svg') }} {% endif %}" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <a href="{{ feedItem.link }}" target="_blank" title="{{ feedItem.title }}">{{ feedItem.title }}</a>
+                        <p>{{ feedItem.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    {% for standardCategoryName, standardCategory in standardCategories %}
+        <h2>{{ standardCategory.title }}</h2>
+        <div class="row">
+            {% for news in standardCategoriesNews[standardCategoryName] %}
+                {% include 'components/singleNews.html.twig' with {'news': news} only %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

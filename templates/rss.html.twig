@@ -5,20 +5,7 @@
     <p>{{ selectedCategory.shortDescription }}</p>
     <div class="row">
         {% for news in allNews %}
-            <div class="col-md-12 col-lg-4 mb-1">
-                {% set feedItem = news.feedItem %}
-                <div class="card mb-2 custom-shadow">
-                    <div class="card-img-container">
-                        <img class="card-img-top" src="{% if news.imageUrl %} {{ news.imageUrl }} {% else %} {{ asset('images/placeholder.svg') }} {% endif %}" alt="{{ feedItem.title }}" title="{{ feedItem.title }}">
-                    </div>
-                    <div class="card-body">
-                        <p class="text-secondary">{% if feedItem.pubDate is defined %}{{ feedItem.pubDate }}{% endif %}</p>
-                        <a class="card-title h5 mb-1" href="{{ feedItem.link }}" target="_blank" title="{{ feedItem.title }}">{{ feedItem.title }}</a>
-                        <p class="card-text">{{ feedItem.description }}</p>
-                        <a href="{{ feedItem.link }}" class="btn btn-primary" target="_blank" title="{{ feedItem.title }}">Show</a>
-                    </div>
-                </div>
-            </div>
+            {% include 'components/singleNews.html.twig' with {'news': news} only %}
         {% endfor %}
         {% if allNews is null %}
             <h2 class="text-center w-100 mb-5 h1">404</h2>

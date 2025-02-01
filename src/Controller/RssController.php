@@ -5,67 +5,56 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\BaseController;
 use App\Service\CategoryService;
-use App\Class\NewsCategory;
+use App\Service\RssService;
 
-class RssController extends AbstractController
+class RssController extends BaseController
 {
+    /**
+     * Display homepage.
+     */
+    #[Route('/', name: 'homepage_show')]
+    public function displayHome(): Response
+    {
+        $highlitedCategoryData = $this->categories[array_key_first($this->categories)];
+        $highlitedNews = RssService::getNewsFromUrls($highlitedCategoryData['urls'], 3);
+
+        $standardCategories = $this->categories;
+        array_shift($standardCategories);
+
+        $standardCategoriesNews = [];
+        foreach ($standardCategories as $standardCategoryName => $standardCategory) {
+            $categoryNews = RssService::getNewsFromUrls($standardCategory['urls'], 3);
+
+            $standardCategoriesNews[$standardCategoryName] = $categoryNews;
+        }
+
+        return $this->render('home.html.twig', [
+            'categories' => $this->categories,
+            'selectedCategoryName' => null,
+            'highlitedCategory' => $highlitedCategoryData,
+            'highlitedNews' => $highlitedNews,
+            'standardCategories' => $standardCategories,
+            'standardCategoriesNews' => $standardCategoriesNews,
+        ]);
+    }
+
     /**
      * Display RSS feed.
      */
-    #[Route('/{categoryName}', name: 'category_show')]
-    public function displayRss(Request $request, string $categoryName = "technology"): Response
+    #[Route('/category/{categoryName}', name: 'category_show')]
+    public function displayRss(Request $request, string $categoryName): Response
     {
         $perPage = 12;
         $limit = $perPage * 3;
         $pageNum = $request->query->getInt('p', 1);
 
-        $categories = CategoryService::getCategories();
+        $categories = $this->categories;
 
-        $selectedCategory = new NewsCategory();
-        $selectedCategoryData = CategoryService::getCategoryByName($categoryName);
-        
-        $selectedCategory->setTitle($selectedCategoryData['title']);
-        $selectedCategory->setShortDescription($selectedCategoryData['shortDescription']);
-        $selectedCategory->setFullDescription($selectedCategoryData['fullDescription']);
+        $selectedCategoryData = $this->categories[$categoryName];
 
-        // Get all news from feeds.
-        $allNews = [];
-        $allNewsCount = 0;
-        foreach($selectedCategoryData['urls'] as $url) {
-            $rssFeed = simplexml_load_file($url);
-            foreach ($rssFeed->channel->item as $feedItem) {
-                
-                if ($allNewsCount >= $limit) {
-                    break;
-                }
-
-                $attributes =  $feedItem->children('media', true)->content->attributes();
-
-                if ($attributes) {
-                    $news['imageUrl'] = $attributes->url;
-                } else {
-                    $news['imageUrl'] = null;
-                }
-
-                $news['feedItem'] = $feedItem;
-                
-                $allNews[] = $news;
-                $allNewsCount += 1;
-            }
-        }
-
-        // Sort news by publication date.
-        usort($allNews, function($a, $b) {
-            $aPubDate = date('Y-m-d H:i:s', strtotime($a['feedItem']->pubDate));
-            $bPubDate = date('Y-m-d H:i:s',strtotime($b['feedItem']->pubDate));
-            if ($aPubDate < $bPubDate) {
-                return 1;
-            } else {
-                return -1;
-            }
-        });
+        $allNews = RssService::getNewsFromUrls($selectedCategoryData['urls'], $limit);
 
         $newsCount = count($allNews);
         $pagesCount = ceil($newsCount / $perPage);
@@ -82,7 +71,7 @@ class RssController extends AbstractController
         return $this->render('rss.html.twig', [
             'allNews' => $allNews,
             'categories' => $categories,
-            'selectedCategory' => $selectedCategory,
+            'selectedCategory' => $selectedCategoryData,
             'selectedCategoryName' => $categoryName,
             'pagesCount' => $pagesCount,
             'pageNum' => $pageNum,

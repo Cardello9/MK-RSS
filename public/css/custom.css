@@ -66,3 +66,20 @@ nav .active a {
 .card:hover img {
     transform: scale(1.1);
 }
+
+.carousel a {
+    color: white;
+    font-size: 2rem;
+}
+
+.carousel .carousel-item {
+    max-height: 34rem;
+}
+
+.carousel .carousel-caption {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+    right: 0;
+    padding: 3rem;
+}
