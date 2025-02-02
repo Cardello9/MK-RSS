@@ -28,10 +28,10 @@ ENV APACHE_DOCUMENT_ROOT=/var/www/html/public/
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 ```
-
-4. run command "docker build --no-cache -t mk-rss ."
-5. run command "docker run --name mk-rss -p 80:80 mk-rss"
-6. Open link "http://localhost/" in browser
+4. Open terminal
+5. Run command "docker build --no-cache -t mk-rss ."
+6. Run command "docker run --name mk-rss -p 80:80 mk-rss"
+7. Open link "http://localhost/" in browser
 
 ![Alt text](/public/screenshots/homepage_desktop.png?raw=true "Homepage - desktop")
 ![Alt text](/public/screenshots/homepage_mobile.png?raw=true "Homepage - mobile")
