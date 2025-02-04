@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use Symfony\Component\Yaml\Yaml;
-use App\Class\NewsCategory;
 
 class CategoryService
 {
