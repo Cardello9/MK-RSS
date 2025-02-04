@@ -1,0 +1,4 @@
+rss_limit: 36
+homepage_news_per_category: 3
+category_per_page: 12
+category_pages_number: 3

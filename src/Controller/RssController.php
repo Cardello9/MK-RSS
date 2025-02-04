@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\BaseController;
 use App\Service\CategoryService;
 use App\Service\RssService;
+use App\Service\ConfigurationService;
 
 class RssController extends BaseController
 {
@@ -17,15 +18,17 @@ class RssController extends BaseController
     #[Route('/', name: 'homepage_show')]
     public function displayHome(): Response
     {
+        $homePageNewsPerCategory = ConfigurationService::get('homepage_news_per_category');
+
         $highlitedCategoryData = $this->categories[array_key_first($this->categories)];
-        $highlitedNews = RssService::getNewsFromUrls($highlitedCategoryData['urls'], 3);
+        $highlitedNews = RssService::getNewsFromUrls($highlitedCategoryData['urls'], $homePageNewsPerCategory);
 
         $standardCategories = $this->categories;
         array_shift($standardCategories);
 
         $standardCategoriesNews = [];
         foreach ($standardCategories as $standardCategoryName => $standardCategory) {
-            $categoryNews = RssService::getNewsFromUrls($standardCategory['urls'], 3);
+            $categoryNews = RssService::getNewsFromUrls($standardCategory['urls'], $homePageNewsPerCategory);
 
             $standardCategoriesNews[$standardCategoryName] = $categoryNews;
         }
@@ -46,8 +49,8 @@ class RssController extends BaseController
     #[Route('/category/{categoryName}', name: 'category_show')]
     public function displayRss(Request $request, string $categoryName): Response
     {
-        $perPage = 12;
-        $limit = $perPage * 3;
+        $perPage = ConfigurationService::get('category_per_page');
+        $limit = $perPage * ConfigurationService::get('category_pages_number');
         $pageNum = $request->query->getInt('p', 1);
 
         $categories = $this->categories;

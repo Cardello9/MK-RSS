@@ -11,7 +11,7 @@ class RssService
     {
         $allNews = [];
         $allNewsCount = 0;
-        $rssLimit = 36;
+        $rssLimit = ConfigurationService::get('rss_limit');
 
         foreach($urls as $url) {
             $rssFeed = simplexml_load_file($url);
