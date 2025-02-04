@@ -25,7 +25,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         {% for categoryName, category in categories %}
-                            <li class="nav-item {% if categoryName == selectedCategoryName %}active{% endif %}">
+                            <li class="nav-item {% if selectedCategoryName is defined and categoryName == selectedCategoryName %}active{% endif %}">
                                 <a class="nav-link" href="{{ path('category_show', { categoryName: categoryName }) }}" title="Business">{{ category.title }}</a>
                             </li>
                         {% endfor %}

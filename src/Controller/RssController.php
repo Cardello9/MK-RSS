@@ -32,7 +32,6 @@ class RssController extends BaseController
 
         return $this->render('home.html.twig', [
             'categories' => $this->categories,
-            'selectedCategoryName' => null,
             'highlitedCategory' => $highlitedCategoryData,
             'highlitedCategoryName' => array_key_first($this->categories),
             'highlitedNews' => $highlitedNews,
