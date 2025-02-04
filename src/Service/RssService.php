@@ -11,12 +11,13 @@ class RssService
     {
         $allNews = [];
         $allNewsCount = 0;
+        $rssLimit = 36;
 
         foreach($urls as $url) {
             $rssFeed = simplexml_load_file($url);
             foreach ($rssFeed->channel->item as $feedItem) {
                 
-                if ($allNewsCount >= $limit) {
+                if ($allNewsCount >= $rssLimit) {
                     break;
                 }
 
@@ -47,6 +48,6 @@ class RssService
             }
         });
 
-        return $allNews;
+        return array_slice($allNews, 0, $limit);
     }
 }
