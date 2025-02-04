@@ -59,6 +59,12 @@ h2 a {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .card-img-container {
     overflow: hidden;
 }
