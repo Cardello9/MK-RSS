@@ -17,7 +17,7 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg darkest-bg custom-shadow navbar-dark">
+            <nav class="navbar navbar-expand-lg custom-shadow navbar-dark">
                 <a class="navbar-brand" href="{{ path('homepage_show') }}" title="Home">MK RSS Feed</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,8 +36,8 @@
         <div class="container mt-4 mb-4">
             {% block body %}{% endblock %}
         </div>
-        <footer class="darkest-bg text-center text-white p-3 custom-shadow">
-            <p>Created by Maciej Kardel 2023</p>
+        <footer class="text-center text-white p-3 custom-shadow">
+            <p>Created by Maciej Kardel 2023 - {{ 'now' | date('Y') }}</p>
         </footer>
     </body>
 </html>

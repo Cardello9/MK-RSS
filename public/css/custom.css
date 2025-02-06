@@ -1,58 +1,58 @@
 body {
-    background-color: #ECF4D6;
+    background-color: #EEEEEE;
+    font-family: "Liter";
+}
+
+h1, h2, h3, h4, h5, p, a {
+    color: black;
+}
+
+a:hover {
+    color: #8E1616;
+}
+
+header nav, footer {
+    background-color: #1D1616;
+}
+
+footer p {
+    color: #EEEEEE;
 }
 
 nav a {
-    color: white;
+    color: #EEEEEE;
 }
 
-nav a:hover {
-    color: #2D9596;
-}
-
-nav .active a {
-    color: #2D9596;
-}
-
-.page-item.active .page-link {
-    background-color: #265073;
-}
-
-.page-link {
-    color: #265073;
+nav a:hover, nav .active {
+    color: #D84040;
 }
 
 .btn.btn-primary {
-    background-color: #265073;
+    background-color: #8E1616;
+    border: none;
 }
 
-.btn.btn-primary:hover {
-    background-color: #2D9596;
+.btn.btn-primary:hover, .btn.btn-primary:focus, .btn-primary:not(:disabled):not(.disabled):active {
+    background-color: #D84040;
+    border: none;
 }
 
-h2 a {
-    color: #212529;
+.page-item .page-link {
+    background-color: #8E1616;
+    border: none;
+    color: #EEEEEE;
+}
+
+
+.page-item .page-link:hover, .page-item.active .page-link {
+    background-color: #D84040;
+    border-color: #D84040;
+    color: #EEEEEE;
 }
 
 .card .card-img-top {
     height: 15rem;
     object-fit: cover;
-}
-
-.brightest-bg {
-    background-color: #ECF4D6;
-}
-
-.bright-bg {
-    background-color: #9AD0C2;
-}
-
-.dark-bg {
-    background-color: #2D9596;
-}
-
-.darkest-bg {
-    background-color: #265073;
 }
 
 .custom-shadow {
@@ -78,7 +78,7 @@ h2 a {
 }
 
 .carousel a {
-    color: white;
+    color: #EEEEEE;
     font-size: 2rem;
 }
 
@@ -92,4 +92,12 @@ h2 a {
     left: 0;
     right: 0;
     padding: 3rem;
+}
+
+.carousel .carousel-caption p {
+    color: #EEEEEE;
+}
+
+.carousel .carousel-caption .copyright {
+    color: #A9A9A9;
 }

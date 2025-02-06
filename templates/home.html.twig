@@ -14,7 +14,7 @@
                     <div class="carousel-caption d-none d-md-block">
                         <a href="{{ feedItem.link }}" target="_blank" title="{{ feedItem.title }}">{{ feedItem.title }}</a>
                         <p>{{ feedItem.description }}</p>
-                        <p class="text-secondary">{% if news.copyright %}{{ news.copyright }}{% endif %}</p>
+                        <p class="copyright">{% if news.copyright %}{{ news.copyright }}{% endif %}</p>
                     </div>
                 </div>
             {% endfor %}
