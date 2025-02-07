@@ -1,6 +1,6 @@
 body {
     background-color: #EEEEEE;
-    font-family: "Liter";
+    font-family: "Times New Roman";
 }
 
 h1, h2, h3, h4, h5, p, a {
@@ -13,6 +13,10 @@ a:hover {
 
 header nav, footer {
     background-color: #1D1616;
+}
+
+.navbar-brand {
+    font-family: "Georgia";
 }
 
 footer p {
