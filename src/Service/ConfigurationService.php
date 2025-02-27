@@ -11,7 +11,13 @@ class ConfigurationService
      */
     public static function get(string $name): mixed
     {
-        $yaml = Yaml::parse(file_get_contents(__DIR__ .'/../../config/appConfig.yaml'));
+        $configFile = file_get_contents(__DIR__ .'/../../config/appConfig.yaml');
+
+        if (! $configFile) {
+            return null;
+        }
+
+        $yaml = Yaml::parse($configFile);
 
         if (array_key_exists($name, $yaml)) {
             return $yaml[$name];

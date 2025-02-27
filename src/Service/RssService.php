@@ -6,6 +6,9 @@ class RssService
 {
     /**
      * Downloads news from RSS channels.
+     * 
+     * @param string[] $urls
+     * @return mixed[]
      */
     public static function getNewsFromUrls(array $urls, int $limit = 36): array
     {
@@ -15,6 +18,11 @@ class RssService
 
         foreach($urls as $url) {
             $rssFeed = simplexml_load_file($url);
+
+            if (! $rssFeed) {
+                break;
+            }
+
             foreach ($rssFeed->channel->item as $feedItem) {
                 
                 if ($allNewsCount >= $rssLimit) {
@@ -39,8 +47,18 @@ class RssService
 
         // Sort news by publication date.
         usort($allNews, function($a, $b) {
-            $aPubDate = date('Y-m-d H:i:s', strtotime($a['feedItem']->pubDate));
-            $bPubDate = date('Y-m-d H:i:s',strtotime($b['feedItem']->pubDate));
+            $aPubDate = strtotime($a['feedItem']->pubDate);
+            if (! $aPubDate) {
+                $aPubDate = strtotime("now");
+            }
+
+            $bPubDate = strtotime($b['feedItem']->pubDate);
+            if (! $bPubDate) {
+                $bPubDate = strtotime("now");
+            }
+
+            $aPubDate = date('Y-m-d H:i:s', $aPubDate);
+            $bPubDate = date('Y-m-d H:i:s', $bPubDate);
             if ($aPubDate < $bPubDate) {
                 return 1;
             } else {

@@ -8,10 +8,18 @@ class CategoryService
 {
     /**
      * Get categories from configuration.
+     * 
+     * @return mixed[]
      */
     public static function getCategories(): array
     {
-        $yaml = Yaml::parse(file_get_contents(__DIR__ .'/../../config/categories.yaml'));
+        $configFile = file_get_contents(__DIR__ .'/../../config/categories.yaml');
+
+        if (!$configFile) {
+            return [];
+        }
+
+        $yaml = Yaml::parse($configFile);
         return $yaml;
     }
 }

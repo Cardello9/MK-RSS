@@ -7,7 +7,8 @@ use App\Service\CategoryService;
 
 class BaseController extends AbstractController
 {
-    protected $categories;
+    /** @var mixed[] */
+    protected array $categories;
 
     function __construct()
     {
