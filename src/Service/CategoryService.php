@@ -1,9 +1,28 @@
 <?php
+/**
+ * Service to get categories.
+ * php version 8.2.4
+ * 
+ * @category Service
+ * @package  MK\rss\Controller
+ * @author   Maciej Kardel <maciej.kardel@gmail.com>
+ * @license  MIT License
+ * @link     https://github.com/Cardello9/MK-RSS
+ */
 
 namespace App\Service;
 
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * Service enables getting categories from config.
+ * 
+ * @category Service
+ * @package  MK\rss\Controller
+ * @author   Maciej Kardel <maciej.kardel@gmail.com>
+ * @license  MIT License
+ * @link     https://github.com/Cardello9/MK-RSS
+ */
 class CategoryService
 {
     /**
